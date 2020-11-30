@@ -1,0 +1,56 @@
+* {
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+:root {
+  --shadowDark: #D9DDE6;
+  --background: #E4E9F2;
+  --shadowLight: #EFF5FE;
+}
+
+body {
+  background: var(--background);
+}
+
+.hero-body {
+  justify-content: center;
+}
+
+.login {
+  border-radius: 25px;
+  padding: 1.5rem;
+  box-shadow: 8px 8px 15px var(--shadowDark), -8px -8px 15px var(--shadowLight);
+  width:80%;
+}
+
+.control{
+	width:50px;
+	font-size:20px;
+	font-weight:bold;
+}
+
+input {
+  background: var(--shadowDark) !important;
+  max-width:50% !important;
+}
+
+a {
+  font-weight: 600;
+}
+
+#code_box{
+	text-align:left;
+	width:100%;
+}
+
+#pre_box{
+	text-align:left;
+}
+.add_picker{
+	width: 15px;	
+	border-radius: 10px 10px 0 0;
+}
+.remove_picker{
+	width: 15px;
+	border-radius: 0 0 10px 10px;
+}
