@@ -69,12 +69,23 @@ function init_array(structure){
 		structure[curr_day] = [];
 	}
 }
-
+/*
 function copy_clipboard(){
 	let copytext = document.getElementById('code_box').innerHTML;
 
 	navigator.clipboard.writeText(copytext);
+	
 
+}*/
+async function copy_clipboard() {
+	
+ let copytext = document.getElementById('code_box').innerHTML;
+  try {
+    await navigator.clipboard.writeText(copytext);
+    console.log('Page URL copied to clipboard');
+  } catch (err) {
+    console.error('Failed to copy: ', err);
+  }
 }
 
 function copy_picker(curr_day){
