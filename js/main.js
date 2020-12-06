@@ -77,15 +77,35 @@ function copy_clipboard(){
 	
 
 }*/
-async function copy_clipboard() {
+function copy_clipboard() {
 	
- let copytext = document.getElementById('code_box').innerHTML;
-  try {
-    await navigator.clipboard.writeText(copytext);
-    console.log('Page URL copied to clipboard');
-  } catch (err) {
-    console.error('Failed to copy: ', err);
-  }
+	let copytext = document.getElementById('code_box').innerHTML;
+	let copyelmnt = document.getElementById('code_box');
+	console.log(copytext);
+
+  
+	if (typeof(navigator.clipboard)=='undefined') {
+		console.log('navigator.clipboard');
+		copyelmnt.focus();
+		copyelmnt.select();
+
+		try {
+			var successful = document.execCommand('copy');
+			var msg = successful ? 'successful' : 'unsuccessful';
+			console.log(msg); 
+		} catch (err) {
+			console.log('Was not possible to copy te text: ', err);
+		}
+
+		document.body.removeChild(textArea)            
+		return;
+	}
+	navigator.clipboard.writeText(copytext).then(function() {
+		console.log(`successful!`);         
+	}, function(err) {
+		console.log('unsuccessful!', err);
+	});
+  
 }
 
 function copy_picker(curr_day){
